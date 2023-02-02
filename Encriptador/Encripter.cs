@@ -1,4 +1,7 @@
 ﻿using System.Windows.Forms.VisualStyles;
+using System.Security.Cryptography;
+using System.IO;
+using System.Text;
 
 namespace Encriptador
 {
@@ -24,9 +27,9 @@ namespace Encriptador
                     case 0:
                         encriptado = EncriptarAscii(inputMsj1.Text, getClave(inputClave1.Text).Sum());
                         break;
-                    //case 1:
-                    //    encriptado = EncriptarAes(inputMsj2.Text, inputClave2.Text);
-                    //    break;
+                    case 1:
+                        encriptado = EncriptarAes(inputMsj2.Text);
+                        break;
                     //case 2:
                     //    encriptado = EncriptarSHA256(inputMsj3.Text);
                         
@@ -58,9 +61,9 @@ namespace Encriptador
                         string clave = inputClave1.Text;
                         desencriptado = DesencriptarAscii(texto, getClave(clave).Sum());
                         break;
-                    //case 'B':
-                    //    desencriptado = DesencriptarBase64(texto);
-                    //    break;
+                    case 1:
+                        desencriptado = DesencriptarAes(inputMsj2.Text, inputClave2.Text);
+                        break;
                     //case 'C':
                     //    desencriptado = DesencriptarMD5(texto);
                     //    break;
@@ -74,6 +77,51 @@ namespace Encriptador
             }
         }
 
+        private string EncriptarAes(String texto)
+        {
+            string encriptado;
+            if (pageSimetrico.Visible == true && texto != "" )
+            {
+                int longitud = 32;
+                int longitudIV = 16;
+                byte[] encriptar = Encoding.UTF8.GetBytes(texto);
+                byte[] keyArray = GeneradorClave(longitud);
+                byte[] iv = GeneradorClave(longitudIV);
+
+                using (Aes aes = Aes.Create())
+                {
+                    aes.Key = keyArray;
+                    aes.IV = iv;
+                    
+                    using(MemoryStream memoryStream = new MemoryStream())
+                    {
+                        using(CryptoStream cryptoStream = new CryptoStream(memoryStream, aes.CreateEncryptor(), CryptoStreamMode.Write))
+                        {
+                            cryptoStream.Write(encriptar,0,encriptar.Length);
+                            cryptoStream.FlushFinalBlock();
+
+                            return Convert.ToBase64String(memoryStream.ToArray());
+                        }
+                    }
+                }
+                
+            }
+            else
+            {
+                encriptado = "No se puede encriptar un mensaje vacio";
+            }
+
+            return encriptado;
+        }
+
+        private string DesencriptarAes(String texto,String clave)
+        {
+            string desencriptado = "";
+
+
+            return desencriptado;
+        }
+        
         private string EncriptarAscii(String texto, int clave)
         {
             char reemplazo;
@@ -146,5 +194,13 @@ namespace Encriptador
             return claveCode;
         }
 
+        private byte[] GeneradorClave(int longitud)
+        {
+            byte[] keyArray = new byte[longitud];
+            Random r = new Random();
+            r.NextBytes(keyArray);
+
+            return keyArray;
+        }
     }
 }

@@ -37,20 +37,18 @@
             this.inputMsj1 = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pageSimetrico = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.inputClave2 = new System.Windows.Forms.TextBox();
             this.inputMsj2 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pageAsimetrico = new System.Windows.Forms.TabPage();
             this.label8 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.inputMsj3 = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.pageHash = new System.Windows.Forms.TabPage();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.inputMsj4 = new System.Windows.Forms.RichTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -150,9 +148,7 @@
             // 
             // pageSimetrico
             // 
-            this.pageSimetrico.Controls.Add(this.label5);
             this.pageSimetrico.Controls.Add(this.label6);
-            this.pageSimetrico.Controls.Add(this.inputClave2);
             this.pageSimetrico.Controls.Add(this.inputMsj2);
             this.pageSimetrico.Controls.Add(this.label1);
             this.pageSimetrico.Location = new System.Drawing.Point(4, 24);
@@ -163,15 +159,6 @@
             this.pageSimetrico.Text = "Simetrico";
             this.pageSimetrico.UseVisualStyleBackColor = true;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(228, 174);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 15);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Ingrese la clave";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -180,13 +167,6 @@
             this.label6.Size = new System.Drawing.Size(104, 15);
             this.label6.TabIndex = 9;
             this.label6.Text = "Ingrese el mensaje";
-            // 
-            // inputClave2
-            // 
-            this.inputClave2.Location = new System.Drawing.Point(132, 192);
-            this.inputClave2.Name = "inputClave2";
-            this.inputClave2.Size = new System.Drawing.Size(297, 23);
-            this.inputClave2.TabIndex = 8;
             // 
             // inputMsj2
             // 
@@ -209,7 +189,7 @@
             // pageAsimetrico
             // 
             this.pageAsimetrico.Controls.Add(this.label8);
-            this.pageAsimetrico.Controls.Add(this.richTextBox2);
+            this.pageAsimetrico.Controls.Add(this.inputMsj3);
             this.pageAsimetrico.Controls.Add(this.label9);
             this.pageAsimetrico.Location = new System.Drawing.Point(4, 24);
             this.pageAsimetrico.Name = "pageAsimetrico";
@@ -228,13 +208,13 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Ingrese el mensaje";
             // 
-            // richTextBox2
+            // inputMsj3
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(132, 112);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(297, 70);
-            this.richTextBox2.TabIndex = 12;
-            this.richTextBox2.Text = "";
+            this.inputMsj3.Location = new System.Drawing.Point(132, 112);
+            this.inputMsj3.Name = "inputMsj3";
+            this.inputMsj3.Size = new System.Drawing.Size(297, 70);
+            this.inputMsj3.TabIndex = 12;
+            this.inputMsj3.Text = "";
             // 
             // label9
             // 
@@ -251,7 +231,7 @@
             this.pageHash.Controls.Add(this.label10);
             this.pageHash.Controls.Add(this.label11);
             this.pageHash.Controls.Add(this.textBox3);
-            this.pageHash.Controls.Add(this.richTextBox3);
+            this.pageHash.Controls.Add(this.inputMsj4);
             this.pageHash.Controls.Add(this.label12);
             this.pageHash.Location = new System.Drawing.Point(4, 24);
             this.pageHash.Name = "pageHash";
@@ -286,13 +266,13 @@
             this.textBox3.Size = new System.Drawing.Size(297, 23);
             this.textBox3.TabIndex = 18;
             // 
-            // richTextBox3
+            // inputMsj4
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(132, 112);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(297, 70);
-            this.richTextBox3.TabIndex = 17;
-            this.richTextBox3.Text = "";
+            this.inputMsj4.Location = new System.Drawing.Point(132, 112);
+            this.inputMsj4.Name = "inputMsj4";
+            this.inputMsj4.Size = new System.Drawing.Size(297, 70);
+            this.inputMsj4.TabIndex = 17;
+            this.inputMsj4.Text = "";
             // 
             // label12
             // 
@@ -408,17 +388,15 @@
         private Label label4;
         private FlowLayoutPanel flowLayoutPanel2;
         private Label lblRespuesta;
-        private Label label5;
         private Label label6;
-        private TextBox inputClave2;
         private RichTextBox inputMsj2;
         private Label label8;
-        private RichTextBox richTextBox2;
+        private RichTextBox inputMsj3;
         private Label label9;
         private Label label10;
         private Label label11;
         private TextBox textBox3;
-        private RichTextBox richTextBox3;
+        private RichTextBox inputMsj4;
         private Label label12;
         private TextBox txtResponse;
     }
