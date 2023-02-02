@@ -2,6 +2,8 @@
 using System.Security.Cryptography;
 using System.IO;
 using System.Text;
+using System.Windows.Forms;
+using System.Threading;
 
 namespace Encriptador
 {
@@ -30,8 +32,9 @@ namespace Encriptador
                     case 1:
                         encriptado = EncriptarAes(inputMsj2.Text);
                         break;
-                    //case 2:
-                    //    encriptado = EncriptarSHA256(inputMsj3.Text);
+                    case 3:
+                        encriptado = EncriptarSHA256(inputMsj3.Text);
+                        break;
                         
                 }
                 
@@ -62,11 +65,11 @@ namespace Encriptador
                         desencriptado = DesencriptarAscii(texto, getClave(clave).Sum());
                         break;
                     case 1:
-                        desencriptado = DesencriptarAes(inputMsj2.Text, inputClave2.Text);
+                        desencriptado = DesencriptarAes(inputMsj2.Text);
                         break;
-                    //case 'C':
-                    //    desencriptado = DesencriptarMD5(texto);
-                    //    break;
+                    case 3:
+                        desencriptado = DesencriptarSHA256(inputMsj4.Text);
+                        break;
                 }
 
                 txtResponse.Text = desencriptado;
@@ -90,17 +93,20 @@ namespace Encriptador
 
                 using (Aes aes = Aes.Create())
                 {
+                    aes.KeySize = keyArray.Length * 4;
+                    aes.BlockSize = iv.Length * 8;
                     aes.Key = keyArray;
                     aes.IV = iv;
-                    
-                    using(MemoryStream memoryStream = new MemoryStream())
+                    //aes.Padding = PaddingMode.None;
+
+                    using (MemoryStream memoryStream = new MemoryStream())
                     {
                         using(CryptoStream cryptoStream = new CryptoStream(memoryStream, aes.CreateEncryptor(), CryptoStreamMode.Write))
                         {
                             cryptoStream.Write(encriptar,0,encriptar.Length);
                             cryptoStream.FlushFinalBlock();
 
-                            return Convert.ToBase64String(memoryStream.ToArray());
+                            encriptado = Convert.ToBase64String(memoryStream.ToArray());
                         }
                     }
                 }
@@ -114,11 +120,46 @@ namespace Encriptador
             return encriptado;
         }
 
-        private string DesencriptarAes(String texto,String clave)
+        private string DesencriptarAes(String texto)
         {
             string desencriptado = "";
 
+            if (pageSimetrico.Visible == true && texto != "")
+            {
+                int longitud = 32;
+                int longitudIV = 16;
+                byte[] desencriptar = Encoding.UTF8.GetBytes(texto);
+                byte[] keyArray = GeneradorClave(longitud);
+                byte[] iv = GeneradorClave(longitudIV);
 
+                using (Aes aesProvider = Aes.Create())
+                {
+                    aesProvider.KeySize = keyArray.Length * 4;
+                    aesProvider.Key = keyArray;
+                    aesProvider.BlockSize = iv.Length * 8;
+                    aesProvider.IV = iv;
+                    ICryptoTransform decryptor = aesProvider.CreateDecryptor(aesProvider.Key, aesProvider.IV);
+
+                    using (var ms = new MemoryStream(desencriptar))
+                    {
+                        using (var cryptoStream = new CryptoStream(ms, decryptor, CryptoStreamMode.Write))
+                        {
+
+                            var dycrypted = new byte[desencriptar.Length];
+                            cryptoStream.Write(desencriptar, 0, desencriptar.Length);
+                            //cryptoStream.Close();
+                            cryptoStream.FlushFinalBlock();
+
+                        }
+                            desencriptado = Encoding.UTF8.GetString(ms.ToArray());
+                    }
+                }
+            }
+            else
+            {
+                desencriptado = "No se pudo encriptar un mensaje vacio";
+            }
+            
             return desencriptado;
         }
         
@@ -166,6 +207,49 @@ namespace Encriptador
 
         }
 
+        private string EncriptarSHA256(string texto)
+        {
+            string encriptado = "";
+
+            if (pageHash.Visible == true && texto != "")
+            {
+                using (SHA256 sha256Hash = SHA256.Create())
+                {
+                    byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(texto));
+                    StringBuilder builder = new StringBuilder();
+
+                    for (int i = 0; i < bytes.Length; i++)
+                    {
+                        builder.Append(bytes[i].ToString("x2"));
+                    }
+
+                    encriptado = builder.ToString();
+                }
+            }
+            else
+            {
+                encriptado = "No se puede encriptar un mensaje vacio";
+            }
+
+            return encriptado;
+            
+        }
+        
+        private string DesencriptarSHA256(string texto){
+            string desencriptado;
+
+            if (pageHash.Visible == true && texto != "")
+            {
+                desencriptado = "No se puede desencriptar un mensaje encriptado con SHA256";
+            }
+            else
+            {
+                desencriptado = "No se puede desencriptar un mensaje vacio";
+            }
+
+            return desencriptado;
+        }
+
         private void seleccionCaso()
         {
             if (pageAscii.Visible)
@@ -196,11 +280,13 @@ namespace Encriptador
 
         private byte[] GeneradorClave(int longitud)
         {
-            byte[] keyArray = new byte[longitud];
-            Random r = new Random();
-            r.NextBytes(keyArray);
+            using (RNGCryptoServiceProvider provider = new RNGCryptoServiceProvider())
+            {
+                byte[] keyArray = new byte[longitud];
+                provider.GetBytes(keyArray);
 
-            return keyArray;
+                return keyArray;
+            }
         }
     }
 }

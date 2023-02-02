@@ -41,6 +41,8 @@
             this.inputMsj2 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pageAsimetrico = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.inputMsj3 = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -188,6 +190,8 @@
             // 
             // pageAsimetrico
             // 
+            this.pageAsimetrico.Controls.Add(this.label5);
+            this.pageAsimetrico.Controls.Add(this.textBox1);
             this.pageAsimetrico.Controls.Add(this.label8);
             this.pageAsimetrico.Controls.Add(this.inputMsj3);
             this.pageAsimetrico.Controls.Add(this.label9);
@@ -198,6 +202,22 @@
             this.pageAsimetrico.TabIndex = 2;
             this.pageAsimetrico.Text = "Asimetrico";
             this.pageAsimetrico.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(185, 194);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(211, 15);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Ingrese el nombre del archivo de llaves";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(132, 212);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(297, 23);
+            this.textBox1.TabIndex = 15;
             // 
             // label8
             // 
@@ -399,5 +419,7 @@
         private RichTextBox inputMsj4;
         private Label label12;
         private TextBox txtResponse;
+        private Label label5;
+        private TextBox textBox1;
     }
 }
