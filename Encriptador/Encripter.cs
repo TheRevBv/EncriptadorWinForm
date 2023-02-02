@@ -14,14 +14,17 @@ namespace Encriptador
         public Encripter()
         {
             InitializeComponent();
+            txtResponse.ReadOnly = true;
+            tbCtrl.Selected += new TabControlEventHandler(tbCtrl_Selected);
         }
+
 
         private void btnEncriptar_Click(object sender, EventArgs e)
         {
             try
             {
                 cleanRes();
-                seleccionCaso();
+                //seleccionCaso();
                 string encriptado = "";
 
                 switch (caso)
@@ -33,11 +36,11 @@ namespace Encriptador
                         encriptado = EncriptarAes(inputMsj2.Text);
                         break;
                     case 3:
-                        encriptado = EncriptarSHA256(inputMsj3.Text);
+                        encriptado = EncriptarSHA256(inputMsj4.Text);
                         break;
-                        
+
                 }
-                
+
 
                 txtResponse.Text = encriptado;
             }
@@ -45,7 +48,7 @@ namespace Encriptador
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
 
         private void btnDesencriptar_Click(object sender, EventArgs e)
@@ -53,16 +56,13 @@ namespace Encriptador
             try
             {
                 cleanRes();
-                seleccionCaso();
+                //seleccionCaso();
                 string desencriptado = "";
-
 
                 switch (caso)
                 {
                     case 0:
-                        string texto = inputMsj1.Text;
-                        string clave = inputClave1.Text;
-                        desencriptado = DesencriptarAscii(texto, getClave(clave).Sum());
+                        desencriptado = DesencriptarAscii(inputMsj1.Text, getClave(inputClave1.Text).Sum());
                         break;
                     case 1:
                         desencriptado = DesencriptarAes(inputMsj2.Text);
@@ -83,7 +83,7 @@ namespace Encriptador
         private string EncriptarAes(String texto)
         {
             string encriptado;
-            if (pageSimetrico.Visible == true && texto != "" )
+            if (pageSimetrico.Visible == true && texto != "")
             {
                 int longitud = 32;
                 int longitudIV = 16;
@@ -101,16 +101,16 @@ namespace Encriptador
 
                     using (MemoryStream memoryStream = new MemoryStream())
                     {
-                        using(CryptoStream cryptoStream = new CryptoStream(memoryStream, aes.CreateEncryptor(), CryptoStreamMode.Write))
+                        using (CryptoStream cryptoStream = new CryptoStream(memoryStream, aes.CreateEncryptor(), CryptoStreamMode.Write))
                         {
-                            cryptoStream.Write(encriptar,0,encriptar.Length);
+                            cryptoStream.Write(encriptar, 0, encriptar.Length);
                             cryptoStream.FlushFinalBlock();
 
                             encriptado = Convert.ToBase64String(memoryStream.ToArray());
                         }
                     }
                 }
-                
+
             }
             else
             {
@@ -151,7 +151,7 @@ namespace Encriptador
                             cryptoStream.FlushFinalBlock();
 
                         }
-                            desencriptado = Encoding.UTF8.GetString(ms.ToArray());
+                        desencriptado = Encoding.UTF8.GetString(ms.ToArray());
                     }
                 }
             }
@@ -159,10 +159,10 @@ namespace Encriptador
             {
                 desencriptado = "No se pudo encriptar un mensaje vacio";
             }
-            
+
             return desencriptado;
         }
-        
+
         private string EncriptarAscii(String texto, int clave)
         {
             char reemplazo;
@@ -184,21 +184,22 @@ namespace Encriptador
             inputMsj1.Text = "";
             return encriptado;
         }
-        
-        private string DesencriptarAscii(string texto,int clave)
+
+        private string DesencriptarAscii(string texto, int clave)
         {
             char reemplazo;
             string desencriptado = "";
 
             if (pageAscii.Visible == true && texto != "" && clave != 0)
             {
-                for (int i = 0; i < texto.Length;i++)
+                for (int i = 0; i < texto.Length; i++)
                 {
                     reemplazo = (char)((int)texto[i] - clave);
                     desencriptado += reemplazo.ToString();
                 }
 
-            } else
+            }
+            else
             {
                 desencriptado = "No se puede desencriptar un mensaje vacio";
             }
@@ -232,10 +233,11 @@ namespace Encriptador
             }
 
             return encriptado;
-            
+
         }
-        
-        private string DesencriptarSHA256(string texto){
+
+        private string DesencriptarSHA256(string texto)
+        {
             string desencriptado;
 
             if (pageHash.Visible == true && texto != "")
@@ -250,17 +252,6 @@ namespace Encriptador
             return desencriptado;
         }
 
-        private void seleccionCaso()
-        {
-            if (pageAscii.Visible)
-                caso = tbCtrl.TabPages.IndexOf(pageAscii);
-            else if (pageAsimetrico.Visible)
-                caso = caso = tbCtrl.TabPages.IndexOf(pageAsimetrico);
-            else if (pageSimetrico.Visible)
-                caso = tbCtrl.TabPages.IndexOf(pageSimetrico);
-            else caso = tbCtrl.TabPages.IndexOf(pageHash);
-        }
-
         private void cleanRes()
         {
             txtResponse.Text = "";
@@ -268,8 +259,8 @@ namespace Encriptador
 
         private IEnumerable<Int32> getClave(String clave)
         {
-            int[] claveCode = new int [clave.Length];
-            for(int i = 0;i < clave.Length; i++)
+            int[] claveCode = new int[clave.Length];
+            for (int i = 0; i < clave.Length; i++)
             {
                 claveCode[i] += (int)clave[i];
                 //claveCode[i] += Convert.ToInt32(Char.GetNumericValue(clave[i]));
@@ -287,6 +278,11 @@ namespace Encriptador
 
                 return keyArray;
             }
+        }
+
+        private void tbCtrl_Selected(Object sender, TabControlEventArgs e)
+        {
+            caso = e.TabPageIndex;
         }
     }
 }

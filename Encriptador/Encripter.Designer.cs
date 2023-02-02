@@ -47,9 +47,7 @@
             this.inputMsj3 = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.pageHash = new System.Windows.Forms.TabPage();
-            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.inputMsj4 = new System.Windows.Forms.RichTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -182,7 +180,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(156, 28);
+            this.label1.Location = new System.Drawing.Point(145, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(263, 32);
             this.label1.TabIndex = 2;
@@ -248,9 +246,7 @@
             // 
             // pageHash
             // 
-            this.pageHash.Controls.Add(this.label10);
             this.pageHash.Controls.Add(this.label11);
-            this.pageHash.Controls.Add(this.textBox3);
             this.pageHash.Controls.Add(this.inputMsj4);
             this.pageHash.Controls.Add(this.label12);
             this.pageHash.Location = new System.Drawing.Point(4, 24);
@@ -261,15 +257,6 @@
             this.pageHash.Text = "HASH";
             this.pageHash.UseVisualStyleBackColor = true;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(228, 196);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(87, 15);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "Ingrese la clave";
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -278,13 +265,6 @@
             this.label11.Size = new System.Drawing.Size(104, 15);
             this.label11.TabIndex = 19;
             this.label11.Text = "Ingrese el mensaje";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(132, 214);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(297, 23);
-            this.textBox3.TabIndex = 18;
             // 
             // inputMsj4
             // 
@@ -338,10 +318,13 @@
             // 
             // txtResponse
             // 
-            this.txtResponse.Location = new System.Drawing.Point(133, 20);
-            this.txtResponse.Margin = new System.Windows.Forms.Padding(20);
+            this.txtResponse.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtResponse.Location = new System.Drawing.Point(123, 10);
+            this.txtResponse.Margin = new System.Windows.Forms.Padding(10);
+            this.txtResponse.Multiline = true;
             this.txtResponse.Name = "txtResponse";
-            this.txtResponse.Size = new System.Drawing.Size(404, 23);
+            this.txtResponse.Size = new System.Drawing.Size(420, 57);
             this.txtResponse.TabIndex = 1;
             // 
             // btnDesencriptar
@@ -413,9 +396,7 @@
         private Label label8;
         private RichTextBox inputMsj3;
         private Label label9;
-        private Label label10;
         private Label label11;
-        private TextBox textBox3;
         private RichTextBox inputMsj4;
         private Label label12;
         private TextBox txtResponse;
