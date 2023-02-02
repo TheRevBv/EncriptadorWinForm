@@ -36,33 +36,32 @@
             this.inputClave1 = new System.Windows.Forms.TextBox();
             this.inputMsj1 = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pageSimetrico = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.inputClave2 = new System.Windows.Forms.TextBox();
+            this.inputMsj2 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pageAsimetrico = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.pageHash = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblRespuesta = new System.Windows.Forms.Label();
-            this.btnDesencriptar = new System.Windows.Forms.Button();
-            this.btnEncriptar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblRespuesta = new System.Windows.Forms.Label();
+            this.txtResponse = new System.Windows.Forms.TextBox();
+            this.btnDesencriptar = new System.Windows.Forms.Button();
+            this.btnEncriptar = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.tbCtrl.SuspendLayout();
             this.pageAscii.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.pageSimetrico.SuspendLayout();
             this.pageAsimetrico.SuspendLayout();
             this.pageHash.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -82,7 +81,7 @@
             // tbCtrl
             // 
             this.tbCtrl.Controls.Add(this.pageAscii);
-            this.tbCtrl.Controls.Add(this.tabPage2);
+            this.tbCtrl.Controls.Add(this.pageSimetrico);
             this.tbCtrl.Controls.Add(this.pageAsimetrico);
             this.tbCtrl.Controls.Add(this.pageHash);
             this.tbCtrl.Location = new System.Drawing.Point(3, 3);
@@ -149,20 +148,20 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Encriptador Tipo Ascii";
             // 
-            // tabPage2
+            // pageSimetrico
             // 
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.richTextBox1);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(561, 286);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Simetrico";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.pageSimetrico.Controls.Add(this.label5);
+            this.pageSimetrico.Controls.Add(this.label6);
+            this.pageSimetrico.Controls.Add(this.inputClave2);
+            this.pageSimetrico.Controls.Add(this.inputMsj2);
+            this.pageSimetrico.Controls.Add(this.label1);
+            this.pageSimetrico.Location = new System.Drawing.Point(4, 24);
+            this.pageSimetrico.Name = "pageSimetrico";
+            this.pageSimetrico.Padding = new System.Windows.Forms.Padding(3);
+            this.pageSimetrico.Size = new System.Drawing.Size(561, 286);
+            this.pageSimetrico.TabIndex = 1;
+            this.pageSimetrico.Text = "Simetrico";
+            this.pageSimetrico.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -182,20 +181,20 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Ingrese el mensaje";
             // 
-            // textBox1
+            // inputClave2
             // 
-            this.textBox1.Location = new System.Drawing.Point(132, 192);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(297, 23);
-            this.textBox1.TabIndex = 8;
+            this.inputClave2.Location = new System.Drawing.Point(132, 192);
+            this.inputClave2.Name = "inputClave2";
+            this.inputClave2.Size = new System.Drawing.Size(297, 23);
+            this.inputClave2.TabIndex = 8;
             // 
-            // richTextBox1
+            // inputMsj2
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(132, 90);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(297, 70);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
+            this.inputMsj2.Location = new System.Drawing.Point(132, 90);
+            this.inputMsj2.Name = "inputMsj2";
+            this.inputMsj2.Size = new System.Drawing.Size(297, 70);
+            this.inputMsj2.TabIndex = 7;
+            this.inputMsj2.Text = "";
             // 
             // label1
             // 
@@ -209,9 +208,7 @@
             // 
             // pageAsimetrico
             // 
-            this.pageAsimetrico.Controls.Add(this.label7);
             this.pageAsimetrico.Controls.Add(this.label8);
-            this.pageAsimetrico.Controls.Add(this.textBox2);
             this.pageAsimetrico.Controls.Add(this.richTextBox2);
             this.pageAsimetrico.Controls.Add(this.label9);
             this.pageAsimetrico.Location = new System.Drawing.Point(4, 24);
@@ -222,15 +219,6 @@
             this.pageAsimetrico.Text = "Asimetrico";
             this.pageAsimetrico.UseVisualStyleBackColor = true;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(228, 196);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(87, 15);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Ingrese la clave";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -239,13 +227,6 @@
             this.label8.Size = new System.Drawing.Size(104, 15);
             this.label8.TabIndex = 14;
             this.label8.Text = "Ingrese el mensaje";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(132, 214);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(297, 23);
-            this.textBox2.TabIndex = 13;
             // 
             // richTextBox2
             // 
@@ -259,11 +240,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(156, 50);
+            this.label9.Location = new System.Drawing.Point(132, 50);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(263, 32);
+            this.label9.Size = new System.Drawing.Size(278, 32);
             this.label9.TabIndex = 11;
-            this.label9.Text = "Encriptador Simetrico";
+            this.label9.Text = "Encriptador Asimetrico";
             // 
             // pageHash
             // 
@@ -279,57 +260,6 @@
             this.pageHash.TabIndex = 3;
             this.pageHash.Text = "HASH";
             this.pageHash.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.flowLayoutPanel2);
-            this.panel1.Controls.Add(this.btnDesencriptar);
-            this.panel1.Controls.Add(this.btnEncriptar);
-            this.panel1.Location = new System.Drawing.Point(3, 323);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(557, 115);
-            this.panel1.TabIndex = 2;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel2.Controls.Add(this.lblRespuesta);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(557, 74);
-            this.flowLayoutPanel2.TabIndex = 5;
-            // 
-            // lblRespuesta
-            // 
-            this.lblRespuesta.AutoSize = true;
-            this.lblRespuesta.Location = new System.Drawing.Point(10, 10);
-            this.lblRespuesta.Margin = new System.Windows.Forms.Padding(10);
-            this.lblRespuesta.Name = "lblRespuesta";
-            this.lblRespuesta.Padding = new System.Windows.Forms.Padding(15);
-            this.lblRespuesta.Size = new System.Drawing.Size(93, 45);
-            this.lblRespuesta.TabIndex = 0;
-            this.lblRespuesta.Text = "Respuesta:";
-            // 
-            // btnDesencriptar
-            // 
-            this.btnDesencriptar.Location = new System.Drawing.Point(352, 80);
-            this.btnDesencriptar.Name = "btnDesencriptar";
-            this.btnDesencriptar.Size = new System.Drawing.Size(202, 32);
-            this.btnDesencriptar.TabIndex = 4;
-            this.btnDesencriptar.Text = "Desencriptar";
-            this.btnDesencriptar.UseVisualStyleBackColor = true;
-            this.btnDesencriptar.Click += new System.EventHandler(this.btnDesencriptar_Click);
-            // 
-            // btnEncriptar
-            // 
-            this.btnEncriptar.Location = new System.Drawing.Point(4, 80);
-            this.btnEncriptar.Name = "btnEncriptar";
-            this.btnEncriptar.Size = new System.Drawing.Size(202, 32);
-            this.btnEncriptar.TabIndex = 3;
-            this.btnEncriptar.Text = "Encriptar";
-            this.btnEncriptar.UseVisualStyleBackColor = true;
-            this.btnEncriptar.Click += new System.EventHandler(this.btnEncriptar_Click);
             // 
             // label10
             // 
@@ -374,20 +304,80 @@
             this.label12.TabIndex = 16;
             this.label12.Text = "Encriptador Hash";
             // 
-            // Form1
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.flowLayoutPanel2);
+            this.panel1.Controls.Add(this.btnDesencriptar);
+            this.panel1.Controls.Add(this.btnEncriptar);
+            this.panel1.Location = new System.Drawing.Point(3, 323);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(557, 115);
+            this.panel1.TabIndex = 2;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel2.Controls.Add(this.lblRespuesta);
+            this.flowLayoutPanel2.Controls.Add(this.txtResponse);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(557, 74);
+            this.flowLayoutPanel2.TabIndex = 5;
+            // 
+            // lblRespuesta
+            // 
+            this.lblRespuesta.AutoSize = true;
+            this.lblRespuesta.Location = new System.Drawing.Point(10, 10);
+            this.lblRespuesta.Margin = new System.Windows.Forms.Padding(10);
+            this.lblRespuesta.Name = "lblRespuesta";
+            this.lblRespuesta.Padding = new System.Windows.Forms.Padding(15);
+            this.lblRespuesta.Size = new System.Drawing.Size(93, 45);
+            this.lblRespuesta.TabIndex = 0;
+            this.lblRespuesta.Text = "Respuesta:";
+            // 
+            // txtResponse
+            // 
+            this.txtResponse.Location = new System.Drawing.Point(133, 20);
+            this.txtResponse.Margin = new System.Windows.Forms.Padding(20);
+            this.txtResponse.Name = "txtResponse";
+            this.txtResponse.Size = new System.Drawing.Size(404, 23);
+            this.txtResponse.TabIndex = 1;
+            // 
+            // btnDesencriptar
+            // 
+            this.btnDesencriptar.Location = new System.Drawing.Point(352, 80);
+            this.btnDesencriptar.Name = "btnDesencriptar";
+            this.btnDesencriptar.Size = new System.Drawing.Size(202, 32);
+            this.btnDesencriptar.TabIndex = 4;
+            this.btnDesencriptar.Text = "Desencriptar";
+            this.btnDesencriptar.UseVisualStyleBackColor = true;
+            this.btnDesencriptar.Click += new System.EventHandler(this.btnDesencriptar_Click);
+            // 
+            // btnEncriptar
+            // 
+            this.btnEncriptar.Location = new System.Drawing.Point(4, 80);
+            this.btnEncriptar.Name = "btnEncriptar";
+            this.btnEncriptar.Size = new System.Drawing.Size(202, 32);
+            this.btnEncriptar.TabIndex = 3;
+            this.btnEncriptar.Text = "Encriptar";
+            this.btnEncriptar.UseVisualStyleBackColor = true;
+            this.btnEncriptar.Click += new System.EventHandler(this.btnEncriptar_Click);
+            // 
+            // Encripter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(572, 450);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Name = "Form1";
+            this.Name = "Encripter";
             this.Text = "Encriptador";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tbCtrl.ResumeLayout(false);
             this.pageAscii.ResumeLayout(false);
             this.pageAscii.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.pageSimetrico.ResumeLayout(false);
+            this.pageSimetrico.PerformLayout();
             this.pageAsimetrico.ResumeLayout(false);
             this.pageAsimetrico.PerformLayout();
             this.pageHash.ResumeLayout(false);
@@ -404,7 +394,7 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private TabControl tbCtrl;
         private TabPage pageAscii;
-        private TabPage tabPage2;
+        private TabPage pageSimetrico;
         private TabPage pageAsimetrico;
         private TabPage pageHash;
         private Panel panel1;
@@ -420,11 +410,9 @@
         private Label lblRespuesta;
         private Label label5;
         private Label label6;
-        private TextBox textBox1;
-        private RichTextBox richTextBox1;
-        private Label label7;
+        private TextBox inputClave2;
+        private RichTextBox inputMsj2;
         private Label label8;
-        private TextBox textBox2;
         private RichTextBox richTextBox2;
         private Label label9;
         private Label label10;
@@ -432,5 +420,6 @@
         private TextBox textBox3;
         private RichTextBox richTextBox3;
         private Label label12;
+        private TextBox txtResponse;
     }
 }
